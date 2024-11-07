@@ -1,4 +1,3 @@
-const { response } = require('express')
 const TaskRepository = require('../repositories/task-repository')
 
 class TaskController
