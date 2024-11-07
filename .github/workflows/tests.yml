@@ -1,0 +1,26 @@
+name: Testes Automatizados
+
+on:
+  push: 
+    branches: [main, develop, feat/*]
+  pull_request:
+    branches: [main, develop, feat/*]
+
+jobs:
+  test:
+    runs-on: ubuntu-latest
+
+    steps:
+    - name: Atualizar repositório
+      uses: actions/checkout@v2
+
+    - name: Instalar o node
+      uses: actions/setup-node@v2
+      with:
+        node-version: '20'
+
+    - name: Instala dependências
+      run: npm install
+
+    - name: Executa os testes
+      run: npm test
