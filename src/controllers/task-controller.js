@@ -16,7 +16,7 @@ class TaskController
       return response.status(400).json({ message: 'name obrigatório' })
     }
     if (done != 0 && done != 1) {
-      return response.status(400).json({ message: 'done obrigatório com 0 ou 1' })
+      return response.status(404).json({ message: 'done obrigatório com 0 ou 1' })
     }
 
     const task = await TaskRepository.save(name, done)
